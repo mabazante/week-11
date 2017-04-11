@@ -73,6 +73,8 @@ addListButton.addEventListener("click", function(e) {
       };
     listArray.push(newList);
     updateLists();
+    document["add-list-form"].reset();
+    closePopups();
   } else {
     alert("Please enter a valid list name: Atleast 3 characters");
   }
@@ -86,15 +88,16 @@ addItemButton.addEventListener("click", function(e) {
   var itemArray = currentList.items;
 
   var input = document["add-item-form"]["item-name-input"];
-  var newListName = input.value;
+  var listName = input.value;
 
-  if (newListName.length >= 2) {
+  if (listName.length >= 2) {
     var newList = {
       name: listName,
       items: []
       };
-    listArray.push(newList);
-    updateLists();
+    listArray.push(list);
+    updateItemsForSelectedList();
+    closePopups();
   } else {
     alert("You need more than two characters!");
   }
