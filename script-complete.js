@@ -95,8 +95,9 @@ addItemButton.addEventListener("click", function(e) {
       name: listName,
       items: []
       };
-    listArray.push(list);
+    listArray.push(newList);
     updateItemsForSelectedList();
+    document["add-item-form"].reset();
     closePopups();
   } else {
     alert("You need more than two characters!");
